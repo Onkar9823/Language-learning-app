@@ -19,6 +19,11 @@ vocabulary = {
                   "Hindi": ["भारत", "अमेरिका", "चीन", "जापान", "जर्मनी"],
                   "Marathi": ["भारत", "अमेरिका", "चीन", "जपान", "जर्मनी"]}
 }
+# Function to play audio pronunciation
+def play_audio(file_path):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+
 
 # Function to display welcome animation
 def welcome_animation():
