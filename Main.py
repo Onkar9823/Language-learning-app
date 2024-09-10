@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
+from PIL import Image, ImageTk
+import pygame
 
+# Initialize pygame mixer
+pygame.mixer.init()
 # Sample vocabulary data
 vocabulary = {
     "Animals": {"English": ["Dog", "Cat", "Cow", "Elephant", "Tiger"],
@@ -23,7 +27,14 @@ vocabulary = {
 def play_audio(file_path):
     pygame.mixer.music.load(file_path)
     pygame.mixer.music.play()
-
+    
+# Function to display image
+def display_image(image_path):
+    img = Image.open(image_path)
+    img = img.resize((100, 100), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
+    img_label.config(image=img)
+    img_label.image = img
 
 # Function to display welcome animation
 def welcome_animation():
