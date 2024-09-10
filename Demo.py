@@ -31,6 +31,51 @@ vocabulary = {
     }
 }
 
+
+# Function to get selected languages
+def get_selected_languages():
+    input_lang = input_language.get()
+    output_lang = output_language.get()
+    print(f"Input Language: {input_lang}, Output Language: {output_lang}")
+
+# Create the main window
+root = tk.Tk()
+root.title("Language Learning App")
+
+# Create a frame for the input language selection
+input_frame = ttk.LabelFrame(root, text="Select Input Language")
+input_frame.grid(row=0, column=0, padx=10, pady=10)
+
+# Create a frame for the output language selection
+output_frame = ttk.LabelFrame(root, text="Select Output Language")
+output_frame.grid(row=0, column=1, padx=10, pady=10)
+
+# Create variables to store the selected languages
+input_language = tk.StringVar()
+output_language = tk.StringVar()
+
+# Create checkboxes for input language selection
+input_english = ttk.Radiobutton(input_frame, text="English", variable=input_language, value="English")
+input_hindi = ttk.Radiobutton(input_frame, text="Hindi", variable=input_language, value="Hindi")
+input_marathi = ttk.Radiobutton(input_frame, text="Marathi", variable=input_language, value="Marathi")
+
+input_english.grid(row=0, column=0, padx=5, pady=5)
+input_hindi.grid(row=1, column=0, padx=5, pady=5)
+input_marathi.grid(row=2, column=0, padx=5, pady=5)
+
+# Create checkboxes for output language selection
+output_english = ttk.Radiobutton(output_frame, text="English", variable=output_language, value="English")
+output_hindi = ttk.Radiobutton(output_frame, text="Hindi", variable=output_language, value="Hindi")
+output_marathi = ttk.Radiobutton(output_frame, text="Marathi", variable=output_language, value="Marathi")
+
+output_english.grid(row=0, column=0, padx=5, pady=5)
+output_hindi.grid(row=1, column=0, padx=5, pady=5)
+output_marathi.grid(row=2, column=0, padx=5, pady=5)
+
+# Create a button to get the selected languages
+submit_button = ttk.Button(root, text="Submit", command=get_selected_languages)
+submit_button.grid(row=1, column=0, columnspan=2, pady=10)
+
 # Function to display welcome animation
 def welcome_animation():
     messagebox.showinfo("Welcome", "Welcome to Language Learning App")
